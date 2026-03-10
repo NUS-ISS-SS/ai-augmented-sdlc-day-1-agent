@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Todo App</title>
+  <title>Todo App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="container">
     <div class="header">
-      <h1>Todo App</h1>
+      <div class="header-left">
+        <h1>My Todos</h1>
+        <p>Stay organized, stay productive</p>
+      </div>
       <button id="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
     </div>
 
@@ -18,14 +21,19 @@
       <input
         id="todo-input"
         type="text"
-        placeholder="Enter a todo"
+        placeholder="What needs to be done?"
         aria-label="Todo text"
         required
       />
-      <button type="submit">Add</button>
+      <button type="submit">+ Add</button>
     </form>
 
     <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+    <div id="todo-footer" class="todo-footer" hidden>
+      <span id="todo-count"></span>
+      <button id="clear-done-btn" class="clear-done-btn" type="button">Clear done</button>
+    </div>
   </main>
 
   <script src="script.js"></script>
