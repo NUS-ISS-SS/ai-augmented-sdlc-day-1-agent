@@ -10,6 +10,24 @@
   --accent-dark: #9f4f28;
   --surface: #f8fafc;
   --shadow: 0 20px 45px rgba(31, 42, 54, 0.12);
+  --toggle-bg: rgba(31, 42, 54, 0.08);
+  --toggle-hover-bg: rgba(31, 42, 54, 0.16);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-start: #0f1923;
+  --bg-end: #1a2636;
+  --card-bg: rgba(26, 36, 50, 0.92);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --text-main: #e8edf3;
+  --text-soft: #8a9bb0;
+  --accent: #e07a4a;
+  --accent-dark: #c85f2e;
+  --surface: rgba(255, 255, 255, 0.06);
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  --toggle-bg: rgba(255, 255, 255, 0.1);
+  --toggle-hover-bg: rgba(255, 255, 255, 0.18);
 }
 
 * {
@@ -43,10 +61,45 @@ body {
   backdrop-filter: blur(14px);
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .todo-card h1 {
-  margin: 0 0 20px;
+  margin: 0;
   font-size: clamp(2rem, 4vw, 2.6rem);
   line-height: 1.1;
+}
+
+.theme-toggle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--toggle-bg);
+  color: var(--text-main);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: var(--toggle-hover-bg);
+  transform: scale(1.1);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .todo-form {
@@ -61,7 +114,8 @@ body {
   padding: 14px 16px;
   border: 1px solid rgba(31, 42, 54, 0.15);
   border-radius: 14px;
-  background: #fff;
+  background: var(--card-bg);
+  color: var(--text-main);
   font: inherit;
 }
 
@@ -132,7 +186,7 @@ body {
   border-radius: 16px;
   text-align: center;
   color: var(--text-soft);
-  background: rgba(248, 250, 252, 0.9);
+  background: var(--surface);
 }
 
 .sr-only {

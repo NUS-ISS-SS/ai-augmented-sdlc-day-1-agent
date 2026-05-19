@@ -9,7 +9,10 @@
 <body>
   <main class="app-shell">
     <section class="todo-card" aria-labelledby="todo-title">
-      <h1 id="todo-title">Todo List</h1>
+      <div class="card-header">
+        <h1 id="todo-title">Todo List</h1>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" type="button">🌙</button>
+      </div>
       <form class="todo-form" id="todo-form">
         <label class="sr-only" for="todo-input">Add a todo</label>
         <input
